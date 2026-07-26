@@ -37,6 +37,12 @@ async def on_startup():
     await init_indexes()
 
 
-@app.get("/api/health")
-async def health():
-    return {"status": "ok", "service": "katlkar-dairy-backend"}
+@app.get("/")
+async def root():
+    return {
+        "name": "Katlkar Dairy API",
+        "status": "running",
+        "docs": "/docs",
+        "health": "/api/health"
+    }
+
